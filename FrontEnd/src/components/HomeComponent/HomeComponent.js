@@ -3,7 +3,12 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import '../HomeComponent/HomeComponent.css'
 import Employee from '../../images/Employees.jpg'
 import logo from '../../images/Logo2.jpg'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Form from '../Form/Form.js'
+import '../Form/Form.css'
+import { Outlet,Link} from 'react-router-dom'
+
+
 
 
 const HomeComponent = (props)=>{
@@ -21,7 +26,7 @@ const HomeComponent = (props)=>{
                 </div>
                 <div className='row justify-content-md-center'>
                     <div className='col 12'>
-                        <Form></Form>
+                        <Outlet></Outlet>
                     </div>
                 </div>
             </div>    
