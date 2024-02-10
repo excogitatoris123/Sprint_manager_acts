@@ -1,21 +1,24 @@
 import React from 'react'
 import './Form.css'
 import { Outlet,Link, Navigate} from 'react-router-dom'
+import ManagerService from '../../services/ManagerService'
 import {useState,useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Form = ()=>{
 
     const [name,setname] = useState('');
-    const [password,setpassword] = useState('');    
+    const [password,setpassword] = useState('');   
+    const navigate = useNavigate();  
+ 
 
     const Handlelogin = ()=>{
-            Navigate('/');
-/*         axios.get(`http://localhost:8080/login/${name}/${password}`).then(response =>{
-            if(response.data == true)
-            Navigate('/sprint');
-        }) */
+        if(name !== '' && password !== '')
+        var man=ManagerService.getByName(name,password);
+        if(man!=undefined)
+        navigate('/sprint');
     }
 
     return(
